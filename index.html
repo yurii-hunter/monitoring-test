@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Domain Checker</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+
+        .ok {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .blocked {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Domain Checker <small
+                                class="text-muted">(Client-side)</small></h2>
+                        <div class="d-flex justify-content-center my-4">
+                            <button onclick="checkDomains()" class="btn btn-primary btn-lg px-5 shadow">Test
+                                Domains</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="domainTable" class="table table-bordered table-hover align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Domain</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- ...existing domain rows... -->
+                                    <tr>
+                                        <td><a href="https://share-3.gameassists.co.uk/"
+                                                target="_blank">https://share-3.gameassists.co.uk/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://zodiac-3.gameassists.co.uk/"
+                                                target="_blank">https://zodiac-3.gameassists.co.uk/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://luxury-3.gameassists.co.uk/"
+                                                target="_blank">https://luxury-3.gameassists.co.uk/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://wwin.com/" target="_blank">https://wwin.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://captaincooks-3.gameassists.co.uk/gambit/en/promotions"
+                                                target="_blank">https://captaincooks-3.gameassists.co.uk/gambit/en/promotions</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://roostake.com/" target="_blank">https://roostake.com/</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://nanogames.io/spin"
+                                                target="_blank">https://nanogames.io/spin</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://500play.com/" target="_blank">https://500play.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawkibet1.online/amp/ru/"
+                                                target="_blank">https://stawkibet1.online/amp/ru/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawkibet.casino/"
+                                                target="_blank">https://stawkibet.casino/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://www.whiterabbit8.casino/ru/"
+                                                target="_blank">https://www.whiterabbit8.casino/ru/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html"
+                                                target="_blank">https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://casinomartin6.com/"
+                                                target="_blank">https://casinomartin6.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html"
+                                                target="_blank">https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://irwincasino110.com/"
+                                                target="_blank">https://irwincasino110.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawkibet.org/" target="_blank">https://stawkibet.org/</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawkibet.club/"
+                                                target="_blank">https://stawkibet.club/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawkibet24.com/"
+                                                target="_blank">https://stawkibet24.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://velobet.win/en" target="_blank">https://velobet.win/en</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://betswap.gg/" target="_blank">https://betswap.gg/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://www.mrluck.com/"
+                                                target="_blank">https://www.mrluck.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://fresh462.casino/en"
+                                                target="_blank">https://fresh462.casino/en</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://www.agentlotto.info/en/home/"
+                                                target="_blank">https://www.agentlotto.info/en/home/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://www.cryptoslots.com/"
+                                                target="_blank">https://www.cryptoslots.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://jackbom.com/en/"
+                                                target="_blank">https://jackbom.com/en/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://gizbocasino80.com/"
+                                                target="_blank">https://gizbocasino80.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawkibet3.com/ru/"
+                                                target="_blank">https://stawkibet3.com/ru/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://jet259.casino/" target="_blank">https://jet259.casino/</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html"
+                                                target="_blank">https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://vega.bet/en" target="_blank">https://vega.bet/en</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html"
+                                                target="_blank">https://geo-restricted.stawki-bet.xyz/403/prj3/ua/index.html</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://starki.com.ua/" target="_blank">https://starki.com.ua/</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://flagmancasino25.com/"
+                                                target="_blank">https://flagmancasino25.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://94betitall8.com/ru"
+                                                target="_blank">https://94betitall8.com/ru</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://goodwin1.win/ru"
+                                                target="_blank">https://goodwin1.win/ru</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://1gocasinovip60.com/"
+                                                target="_blank">https://1gocasinovip60.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://heatscasino.com/"
+                                                target="_blank">https://heatscasino.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://lobby.goldeneuro.com/"
+                                                target="_blank">https://lobby.goldeneuro.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://monro83.casino/"
+                                                target="_blank">https://monro83.casino/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://coincasino.online/"
+                                                target="_blank">https://coincasino.online/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://play.coincasino.com/en"
+                                                target="_blank">https://play.coincasino.com/en</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://astrozino14.com/"
+                                                target="_blank">https://astrozino14.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://vavadabgt51.com/"
+                                                target="_blank">https://vavadabgt51.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://www.coincasino.pro/en"
+                                                target="_blank">https://www.coincasino.pro/en</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://00003421.com/" target="_blank">https://00003421.com/</a>
+                                        </td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://www.netxcasino292.com/"
+                                                target="_blank">https://www.netxcasino292.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawki-bet2.online/ru/"
+                                                target="_blank">https://stawki-bet2.online/ru/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://stawki-bet2.com/ru/"
+                                                target="_blank">https://stawki-bet2.com/ru/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://80coolzino18.com/not-allowed"
+                                                target="_blank">https://80coolzino18.com/not-allowed</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://g0t8melumb.com/"
+                                                target="_blank">https://g0t8melumb.com/</a></td>
+                                        <td>Not tested</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-center my-4">
+                            <button onclick="checkDomains()" class="btn btn-primary btn-lg px-5 shadow">Test
+                                Domains</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function checkDomains() {
+            const rows = document.querySelectorAll("#domainTable tbody tr");
+            for (const row of rows) {
+                const domain = row.cells[0].innerText;
+                const statusCell = row.cells[1];
+                statusCell.innerHTML = `<span class='text-secondary'>Checking...</span>`;
+                try {
+                    const response = await fetch(domain, { method: 'GET', mode: 'no-cors' });
+                    if (response.ok || response.redirected) {
+                        statusCell.innerHTML = `<span class='ok'><i class='bi bi-check-circle-fill'></i> Non Blocked</span>`;
+                    } else {
+                        statusCell.innerHTML = `<span class='ok'><i class='bi bi-check-circle'></i> Non Blocked (no-cors)</span>`;
+                    }
+                } catch (error) {
+                    statusCell.innerHTML = `<span class='blocked'><i class='bi bi-x-circle-fill'></i> Blocked</span>`;
+                }
+            }
+        }
+    </script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</body>
+
+</html>
