@@ -35,6 +35,25 @@
                             <button onclick="checkDomains()" class="btn btn-primary btn-lg px-5 shadow">Test
                                 Domains</button>
                         </div>
+                        <div id="summaryCard" class="card mb-4" style="display:none;">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Checking Progress</h5>
+                                <div class="row text-center">
+                                    <div class="col">
+                                        <span class="fw-bold">Processed:</span>
+                                        <span id="processedCount" class="ms-2">0</span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="fw-bold blocked">Blocked:</span>
+                                        <span id="blockedCount" class="ms-2">0</span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="fw-bold ok">Non Blocked:</span>
+                                        <span id="nonBlockedCount" class="ms-2">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table id="domainTable" class="table table-bordered table-hover align-middle">
                                 <thead class="table-light">
@@ -45,10 +64,6 @@
                                 </thead>
                                 <tbody>
                                     <!-- ...existing domain rows... -->
-                                    <tr>
-                                        <td><a href="Фінальний URL" target="_blank">Фінальний URL</a></td>
-                                        <td>Not tested</td>
-                                    </tr>
                                     <tr>
                                         <td><a href="https://share-3.gameassists.co.uk/"
                                                 target="_blank">https://share-3.gameassists.co.uk/</a></td>
@@ -6563,20 +6578,32 @@
     <script>
         async function checkDomains() {
             const rows = document.querySelectorAll("#domainTable tbody tr");
+            let processed = 0;
+            let blocked = 0;
+            let nonBlocked = 0;
+            document.getElementById('summaryCard').style.display = '';
             for (const row of rows) {
                 const domain = row.cells[0].innerText;
                 const statusCell = row.cells[1];
                 statusCell.innerHTML = `<span class='text-secondary'>Checking...</span>`;
                 try {
                     const response = await fetch(domain, { method: 'GET', mode: 'no-cors' });
-                    if (response.ok || response.redirected) {
+                    processed++;
+                    if (response.ok) {
                         statusCell.innerHTML = `<span class='ok'><i class='bi bi-check-circle-fill'></i> Non Blocked</span>`;
+                        nonBlocked++;
                     } else {
                         statusCell.innerHTML = `<span class='ok'><i class='bi bi-check-circle'></i> Non Blocked (no-cors)</span>`;
+                        nonBlocked++;
                     }
                 } catch (error) {
                     statusCell.innerHTML = `<span class='blocked'><i class='bi bi-x-circle-fill'></i> Blocked</span>`;
+                    processed++;
+                    blocked++;
                 }
+                document.getElementById('processedCount').textContent = `${processed}/${rows.length}`;
+                document.getElementById('blockedCount').textContent = blocked;
+                document.getElementById('nonBlockedCount').textContent = nonBlocked;
             }
         }
     </script>
